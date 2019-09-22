@@ -1,21 +1,23 @@
 #include<bits/stdc++.h>
+#include<cstring>
 using namespace std;
+
 int main()
 {
-	int sum=0;
-	int n,t,minn=101,maxn=0;
-	double adv=0.0;
+	char *data[]={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+	int n;
 	cin>>n;
-	for(int i=0;i<n;i++)
+	while(n--)
 	{
-		cin>>t;
-		sum+=t;
-		if(t<minn)minn=t;
-		if(t>maxn)maxn=t;
+		int find_num = -1;
+		char input[10];
+		cin>>input;
+		for(int i=0;i<7;i++)
+		{
+			if(strcmp(data[i],input)==0)
+				find_num = i+1;
+		}
+		cout<<find_num<<'\n';
 	}
-	adv=1.0*sum/n;
-	printf("average = %.2lf\n",adv);
-	printf("max = %.2lf\n",maxn*1.0);
-	printf("min = %.2lf",minn*1.0);
 	return 0;
-}
+} 

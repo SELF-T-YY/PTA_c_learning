@@ -20,4 +20,4 @@ int main()
 		cout<<find_num<<'\n';
 	}
 	return 0;
-} 
+}

@@ -17,6 +17,6 @@ int main()
 			else cout<<' '<<x*n<<' '<<n-1;
 		}
 	}
-	if()
+	if(flag == 0) cout<<"0 0";
 	return 0;
 }

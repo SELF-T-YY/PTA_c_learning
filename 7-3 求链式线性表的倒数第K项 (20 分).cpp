@@ -1,53 +1,34 @@
 #include<bits/stdc++.h>
 #define Elemtype int
-#define Posistion int
 using namespace std;
 
+typedef struct Node *List;
 struct Node{
 	Elemtype Data;
-	Node *Nextpath;
+	Node *Next;
 };
-
-typedef struct Node *List;
-
-List input()
-{
-	List L = (List)malloc(sizeof(Node));
-	int x;
-	cin>>x;
-	L->Data = x;
-	L->Nextpath = NULL;
-
-	List p = L;
-	List temp = (List)malloc(sizeof(List));
+int main()
+{	
+	int k;
+	scanf("%d",&k);
+	List p = (List)malloc(sizeof(Node));
+	p->Next = NULL;	
 	while(true)
 	{
-		cin>>x;
-		if(x==-1)break;
-		temp->Data = x;
-		temp->Nextpath = p;
+		int n;
+		scanf("%d",&n);
+		if(n<0)break;
+		List temp = (List)malloc(sizeof(Node));
+		temp->Data = n;
+		temp->Next = p;
+		p = temp; 
 	}
-	return temp;
-}
-
-List find(List L, Posistion k)
-{
-	List p = L;
-	for(int i=0;i<k;i++)
-	{
-		if(p->Nextpath == NULL)break;
-		p = p->Nextpath;
-	}
-	if(p->Nextpath == NULL)cout<<"NULL";
+	k--;
+	while(k-- && p->Next!=NULL)
+		p = p->Next;
+	if(p->Next != NULL)
+		printf("%d",p->Data);
 	else
-		cout<<p->Data;
-}
-
-int main()
-{
-	int k;
-	cin>>k;
-	List L = input();
-	find(L,k);
+		printf("NULL");
 	return 0;
 }

@@ -61,6 +61,20 @@ void add(List L1, List L2)
 	}
 	if(!flag)printf("NULL");
 }
+
+void output(List L)
+{
+	if(!L)cout<<"NULL";
+	else
+	{
+		while(L)
+		{
+			cout<<L->Data<<' ';
+			L = L->Next;
+		}
+	}
+	return;
+}
 int main()
 {
 	List L1 = input();
